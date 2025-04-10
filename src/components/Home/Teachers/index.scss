@@ -1,0 +1,137 @@
+.teachers-list-section {
+  .toolbar-wrap {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding: 15px;
+    border-radius: 5px;
+    background: #fff;
+    -webkit-box-shadow: 0px 2px 4px 0px rgba(11, 02, 55, 0.06);
+    -moz-box-shadow: 0px 2px 4px 0px rgba(11, 02, 55, 0.06);
+    box-shadow: 0px 2px 4px 0px rgba(11, 02, 55, 0.06);
+    .toolbar-btn-wrap {
+      display: flex;
+      align-items: center;
+      .toolbar-btn {
+        cursor: pointer;
+        position: relative;
+        display: flex;
+        align-items: center;
+        transition: color 0.3s ease;
+        i {
+          margin-right: 5px;
+          color: #c3c2c8;
+          transition: color 0.3s ease;
+        }
+        &.active,
+        &:hover {
+          color: #5838fc;
+          i {
+            color: #5838fc;
+          }
+        }
+        &:first-of-type {
+          margin-right: 20px;
+          &::after {
+            position: absolute;
+            right: -10px;
+            bottom: 0;
+            top: 0;
+            margin: auto;
+            width: 1px;
+            height: 30px;
+            content: "";
+            background: #efedf4;
+          }
+        }
+      }
+    }
+    .condition-wrap {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      .select-wrap,
+      .search-wrap {
+        display: flex;
+        align-items: center;
+        border-radius: 5px;
+        background: #f1f0f5;
+        width: 240px;
+      }
+      .select-wrap {
+        padding-left: 0.75rem;
+        margin-right: 12px;
+      }
+      .search-wrap {
+        margin-left: 3px;
+        padding-right: 10px;
+      }
+      .custom-form-select {
+        border: none; /* 移除边框 */
+        background-color: transparent; /* 可选，如果你想要背景也是透明的 */
+        outline: none; /* 移除焦点时的轮廓 */
+        -webkit-appearance: none; /* 移除Webkit浏览器的默认样式 */
+        -moz-appearance: none; /* 移除Mozilla浏览器的默认样式 */
+        appearance: none;
+        color: #5d5a67;
+        box-shadow: none;
+      }
+      .custom-input-group {
+        border: none;
+        box-shadow: none; /* 移除聚焦时的阴影 */
+        .custom-input {
+          border: none;
+          box-shadow: none;
+          background: transparent;
+        }
+      }
+    }
+  }
+  .tab-content {
+    .tab-pane {
+      display: none;
+      &.active {
+        display: block;
+      }
+    }
+  }
+}
+
+// lg
+@media screen and (max-width: 992px) {
+  .teachers-list-section {
+    .toolbar-wrap {
+      flex-direction: column;
+    }
+  }
+}
+
+// md
+@media screen and (max-width: 768px) {
+  .teachers-list-section {
+    .toolbar-wrap {
+      .condition-wrap {
+        flex-direction: column;
+        width: 100%;
+        .select-wrap {
+          width: 100%;
+          margin: 10px 0;
+        }
+        .search-wrap {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+// sm
+@media screen and (max-width: 576px) {
+  .teachers-list-section {
+    .toolbar-wrap {
+      margin-bottom: 20px;
+    }
+  }
+}

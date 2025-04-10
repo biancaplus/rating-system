@@ -1,0 +1,197 @@
+@import "@/assets/mixin.scss";
+
+.card3-item-wrap {
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  background: #fff;
+  @include box-shadow;
+
+  .avatar-wrap {
+    width: 300px;
+    background: #bcbcbc;
+    display: flex;
+    align-items: center;
+    img {
+      width: 100%;
+      // height: 100%;
+    }
+  }
+  .info-score-wrap {
+    flex: 1;
+    padding: 30px 0;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    .line-img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 45px;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+    }
+    .info-wrap {
+      z-index: 2;
+      position: relative;
+      flex: 1;
+      padding: 0 45px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      .faculty-wrap {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-bottom: 10px;
+
+        .faculty {
+          display: inline-block;
+          background: rgba(252, 46, 144, 0.1);
+          line-height: 1.1;
+          color: #fc2e90;
+          font-weight: 600;
+          text-align: center;
+          border-radius: 3px;
+          padding: 7px 11px;
+          margin-right: 10px;
+          @include text-overflow;
+        }
+        .name-wrap {
+          display: flex;
+          align-items: center;
+          .name {
+            font-size: 20px;
+            line-height: 28px;
+            font-weight: bold;
+            color: #2c234d;
+            margin-right: 10px;
+            @include text-overflow;
+          }
+
+          .job-title {
+            color: #fc2e90;
+            font-size: 13px;
+            white-space: nowrap;
+            padding: 0px 5px;
+            border: 1px solid #fc2e90;
+            border-radius: 5px;
+          }
+        }
+      }
+
+      .introduction {
+        margin-bottom: 5px;
+        text-indent: 2em;
+        margin-bottom: 10px;
+        text-align: justify;
+        // @include text-overflow-3;
+      }
+      .other-wrap {
+        .i-box {
+          display: flex;
+          align-items: start;
+          margin-bottom: 5px;
+
+          .label {
+            white-space: nowrap;
+            font-weight: bold;
+          }
+          .value {
+            color: #5d5a67;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+
+            .item {
+              color: #5838fc;
+              font-size: 13px;
+              padding: 0px 5px;
+              border: 1px solid #5838fc;
+              border-radius: 5px;
+              white-space: nowrap;
+            }
+          }
+        }
+      }
+    }
+    .score-wrap {
+      z-index: 2;
+      position: relative;
+      padding: 25px 45px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 2px dotted #c3c2c8;
+      color: #5d5a67;
+      font-size: 16px;
+
+      .ratings {
+        display: flex;
+        align-items: center;
+        .ratings-item {
+          display: flex;
+          align-items: center;
+          i {
+            color: #ffc107;
+          }
+          .c-primary {
+            color: #5838fc;
+          }
+        }
+        span {
+          margin: 0 15px 0 5px;
+        }
+      }
+    }
+  }
+}
+
+// lg
+@media screen and (max-width: 992px) {
+  .card3-item-wrap {
+    .avatar-wrap {
+      width: 240px;
+    }
+    .info-score-wrap {
+      padding: 20px 0;
+      .info-wrap {
+        padding: 0 30px;
+        .faculty-wrap {
+          flex-direction: column;
+          align-items: start;
+
+          .faculty {
+            margin-bottom: 10px;
+            margin-right: 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+// md
+@media screen and (max-width: 768px) {
+  .card3-item-wrap {
+    flex-direction: column;
+    .avatar-wrap {
+      margin: 0 auto;
+      width: 100%;
+    }
+  }
+}
+
+/* sm */
+@media screen and (max-width: 576px) {
+  .card3-item-wrap {
+    .info-score-wrap {
+      .info-wrap {
+        padding: 0 20px;
+      }
+    }
+  }
+}

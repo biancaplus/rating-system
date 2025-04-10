@@ -1,0 +1,25 @@
+@mixin text-overflow {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@mixin text-overflow-2 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+@mixin text-overflow-3 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+}
+
+@mixin box-shadow {
+  -webkit-box-shadow: 0px 1px 6px 0px rgba(11, 02, 56, 0.08);
+  -moz-box-shadow: 0px 1px 6px 0px rgba(11, 02, 56, 0.08);
+  box-shadow: 0px 1px 6px 0px rgba(11, 02, 56, 0.08);
+}

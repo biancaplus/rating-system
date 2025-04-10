@@ -1,0 +1,20 @@
+.review-item {
+  .review-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 5px;
+    .ratings {
+      display: flex;
+      align-items: center;
+      gap: 3px;
+      i {
+        color: #ffc107;
+      }
+    }
+  }
+  .review-content {
+    color: #000000;
+    text-align: justify;
+  }
+}

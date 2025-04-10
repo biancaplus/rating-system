@@ -1,0 +1,13 @@
+.custom-pagination {
+  margin-bottom: 0;
+  justify-content: center;
+}
+
+/* sm */
+@media screen and (max-width: 576px) {
+  .rating-reviews-section {
+    .page-link {
+      padding: 0.3rem 0.4rem;
+    }
+  }
+}

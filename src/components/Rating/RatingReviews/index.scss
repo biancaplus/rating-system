@@ -1,0 +1,222 @@
+@import "@/assets/mixin.scss";
+.rating-reviews-section {
+  position: relative;
+  margin-top: 30px;
+  padding-bottom: 20px;
+  .rating-reviews-wrap {
+    padding: 30px 45px 45px;
+    background: #fff;
+    border-radius: 10px;
+    @include box-shadow;
+
+    .rating-wrap {
+      margin: 20px 0;
+      color: #8c8c90;
+
+      .score-box {
+        display: flex;
+        align-items: end;
+        margin-bottom: 20px;
+        padding-bottom: 20px;
+        border-bottom: 1px solid #e5e5e5;
+        .total-score {
+          margin-right: 50px;
+          text-align: center;
+          .t-1 {
+            font-size: 5rem;
+            line-height: 1;
+            font-weight: bold;
+            color: #4a4a4e;
+          }
+        }
+        .star-info {
+          flex: 1;
+          .star-distribut {
+            width: 100%;
+            .star-item {
+              display: flex;
+              align-items: center;
+              height: 16px;
+              .star-box {
+                display: flex;
+                align-items: center;
+                margin-right: 15px;
+                color: #ffc107;
+                justify-content: end;
+                width: 90px;
+                gap: 5px;
+                font-size: 0.85rem;
+              }
+              .star-progress {
+                flex: 1;
+              }
+            }
+          }
+          .star-num {
+            width: 100%;
+            text-align: right;
+          }
+        }
+      }
+      .to-score {
+        display: flex;
+        // justify-content: space-between;
+        align-items: center;
+      }
+    }
+
+    .reviews-wrap {
+      .write-select-wrap {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 20px;
+
+        .write-box {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          cursor: pointer;
+          color: #5a53ef;
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+        .select-box {
+          .reviews-select {
+            padding: 0.375rem 1.5rem 0.375rem 0.75rem;
+            border: none; /* 移除边框 */
+            background-color: transparent; /* 可选，如果你想要背景也是透明的 */
+            outline: none; /* 移除焦点时的轮廓 */
+            -webkit-appearance: none; /* 移除Webkit浏览器的默认样式 */
+            -moz-appearance: none; /* 移除Mozilla浏览器的默认样式 */
+            appearance: none;
+            color: #5a53ef;
+            box-shadow: none;
+            background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgdmlld0JveD0iMCAwIDE2IDE2Ij48cGF0aCBmaWxsPSIjNWE1M2VmIiBzdHJva2U9IiM1YTUzZWYiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgZD0iTTEuNjQ2IDQuNjQ2YS41LjUgMCAwIDEgLjcwOCAwTDggMTAuMjkzbDUuNjQ2LTUuNjQ3YS41LjUgMCAwIDEgLjcwOC43MDhsLTYgNmEuNS41IDAgMCAxLS43MDggMGwtNi02YS41LjUgMCAwIDEgMC0uNzA4Ii8+PC9zdmc+");
+            background-repeat: no-repeat;
+            background-position: right 0 center;
+            background-size: 16px 12px;
+          }
+        }
+      }
+      .reviews-list-wrap {
+        margin-bottom: 20px;
+        .reviews-item-wrap {
+          padding: 20px;
+          background: #f2f2f7;
+          border-radius: 10px;
+          margin-bottom: 20px;
+          &:last-of-type {
+            margin-bottom: 0;
+          }
+          .review-item {
+            .review-header {
+              .review-date {
+                color: #86868c;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.custom-modal {
+  .modal-header-wrap {
+    .custom-title {
+      font-size: 1.3rem;
+    }
+  }
+
+  .modal-body-wrap {
+    .modal-rating {
+      text-align: center;
+      margin-bottom: 1rem;
+      .text {
+        color: #86868c;
+        font-size: 0.85rem;
+      }
+    }
+  }
+}
+
+/* xxl */
+@media screen and (max-width: 1400px) {
+}
+
+/* xl */
+@media screen and (max-width: 1200px) {
+}
+
+/* lg */
+@media screen and (max-width: 992px) {
+  .rating-reviews-section {
+    margin-top: 25px;
+    .rating-reviews-wrap {
+      padding: 20px;
+      .rating-wrap {
+        .score-box {
+          .total-score {
+            margin-right: 35px;
+          }
+        }
+      }
+      .reviews-wrap {
+        .write-select-wrap {
+          margin-bottom: 10px;
+        }
+      }
+    }
+  }
+}
+
+/* md */
+@media screen and (max-width: 768px) {
+}
+
+/* sm */
+@media screen and (max-width: 576px) {
+  .rating-reviews-section {
+    margin-top: 20px;
+    .rating-reviews-wrap {
+      padding: 15px;
+
+      .rating-wrap {
+        margin: 15px 0;
+        .score-box {
+          .total-score {
+            margin-right: 25px;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* 375/360 */
+@media screen and (max-width: 380px) {
+  .rating-reviews-section {
+    margin-top: 10px;
+    .rating-reviews-wrap {
+      .rating-wrap {
+        margin: 10px 0;
+        .score-box {
+          margin-bottom: 10px;
+          padding-bottom: 10px;
+          .total-score {
+            margin-right: 15px;
+          }
+          .star-info .star-distribut .star-item {
+            .star-box {
+              width: 80px;
+              gap: 3px;
+              margin-right: 10px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

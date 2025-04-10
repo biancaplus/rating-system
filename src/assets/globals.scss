@@ -1,0 +1,106 @@
+/* global css */
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+
+#root {
+  font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB",
+    "Segoe UI", Tahoma, Geneva, Verdana, "Microsoft YaHei", "微软雅黑", Arial,
+    sans-serif;
+  background: #f7f6fa;
+
+  /* height: 100vh; */
+  /* overflow-y: hidden; */
+}
+
+*::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+*::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+  background: transparent;
+}
+
+*::-webkit-scrollbar-track {
+  box-shadow: none;
+  border-radius: 0;
+  background: transparent;
+}
+
+.w-40 {
+  width: 40%;
+}
+
+.w-35 {
+  width: 35%;
+}
+
+/*  content css */
+.custom-navbar {
+  background-image: linear-gradient(to right, #5a53ef, #8383f2);
+  i {
+    font-size: 1.5rem;
+    line-height: 1;
+  }
+}
+.home-banner {
+  padding-top: 4rem;
+}
+.rating-teacther-section {
+  padding-top: 130px;
+}
+
+/* xxl */
+@media screen and (max-width: 1400px) {
+  .rating-teacther-section {
+    padding-top: 120px;
+  }
+}
+
+/* xl */
+@media screen and (max-width: 1200px) {
+}
+
+/* lg */
+@media screen and (max-width: 992px) {
+  .navbar-brand {
+    font-size: 1.1rem !important;
+  }
+  .home-banner {
+    .banner-text {
+      font-size: 1.25rem !important;
+    }
+  }
+  .rating-teacther-section {
+    padding-top: 100px;
+  }
+}
+
+/* md */
+@media screen and (max-width: 768px) {
+  .home-banner {
+    padding-top: 5rem;
+    .banner-text {
+      font-size: 1.1rem !important;
+    }
+  }
+}
+
+/* sm */
+@media screen and (max-width: 576px) {
+  .rating-teacther-section {
+    padding-top: 80px;
+  }
+}
+
+/* 375/360 */
+@media screen and (max-width: 380px) {
+  .rating-teacther-section {
+    padding-top: 70px;
+  }
+}
