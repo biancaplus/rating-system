@@ -2,7 +2,7 @@ import { Col, Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 
 import "./index.scss";
-import StarRating from "@/utils/StarRating";
+import StarRating from "@/utils/star/StarRating";
 import ReviewsItem from "@/components/ReviewsItem";
 
 function Card1({ ItemData }) {
@@ -70,7 +70,7 @@ function Card1({ ItemData }) {
             <div className="reviews-wrap">
               <div className="reviews-item-wrap">
                 {reviews.map((item, index) => {
-                  return <ReviewsItem Item={item} Index={index} />;
+                  return <ReviewsItem Item={item} key={index} />;
                 })}
               </div>
             </div>

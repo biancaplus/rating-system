@@ -1,8 +1,8 @@
 import "./index.scss";
 
-export default function ReviewsItem({ Item, Index }) {
+export default function ReviewsItem({ Item }) {
   return (
-    <div className="review-item" key={Index}>
+    <div className="review-item">
       <div className="review-header">
         <div className="ratings">
           {Array.from({ length: Item.rating }).map((_, i) => (

@@ -10,7 +10,7 @@ import {
 import { useState } from "react";
 
 import Title from "@/components/Title";
-import StarRating from "@/utils/StarRating";
+import StarRating from "@/utils/star/StarRating";
 import ReviewsItem from "@/components/ReviewsItem";
 import DynamicPagination from "@/components/DynamicPagination";
 
@@ -48,6 +48,7 @@ export default function RatingReviews({ teacher }) {
     setShowModal(false);
   };
   const handleShowModal = () => {
+    setMakeRating(0);
     setShowModal(true);
   };
 
@@ -122,7 +123,7 @@ export default function RatingReviews({ teacher }) {
                 {reviews.map((item, index) => {
                   return (
                     <div className="reviews-item-wrap" key={index}>
-                      <ReviewsItem Item={item} Index={index} />
+                      <ReviewsItem Item={item} />
                     </div>
                   );
                 })}

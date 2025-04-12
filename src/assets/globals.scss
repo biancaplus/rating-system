@@ -40,6 +40,41 @@ body {
   width: 35%;
 }
 
+/* back to top button*/
+#back-to-top {
+  font-size: 18px;
+  font-weight: bold;
+  width: 40px;
+  height: 40px;
+  line-height: 42px;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+  color: #fff;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 999;
+  cursor: pointer;
+  -webkit-box-shadow: 0px 20px 30px 0px rgba(26, 8, 119, 0.24);
+  -moz-box-shadow: 0px 20px 30px 0px rgba(26, 8, 119, 0.24);
+  box-shadow: 0px 20px 30px 0px rgba(26, 8, 119, 0.24);
+  animation: fadeInUp 0.5s linear;
+}
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
 /*  content css */
 .custom-navbar {
   background-image: linear-gradient(to right, #5a53ef, #8383f2);
