@@ -9,8 +9,11 @@ export default function Navigator() {
         <Navbar.Brand className="navbar-brand">公正评价，共同成长</Navbar.Brand>
         <Nav className="justify-content-end">
           <Nav.Link as={Link} to="/home">
-            <i className="bi bi-house-door-fill text-white"></i>
+            <i className="bi bi-house-door-fill"></i>
           </Nav.Link>
+          <div className="line"></div>
+          <i className="bi bi-translate custom-icon"></i>
+
           {/* <Nav.Link as={Link} to="/rating">
             评分
           </Nav.Link> */}

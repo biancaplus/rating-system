@@ -79,8 +79,20 @@ body {
 .custom-navbar {
   background-image: linear-gradient(to right, #5a53ef, #8383f2);
   i {
-    font-size: 1.5rem;
-    line-height: 1;
+    font-size: 1.3rem;
+    // line-height: 1;
+    color: #ffffffe0;
+  }
+  .line {
+    width: 1px;
+    height: 1.6em;
+    background-color: #ffffff50;
+    margin: auto 0;
+  }
+  .custom-icon {
+    margin: auto 0;
+    margin-left: 0.5em;
+    cursor: pointer;
   }
 }
 .home-banner {
