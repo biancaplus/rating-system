@@ -6,7 +6,7 @@ import BackToTop from "./utils/scroll/BackToTop.jsx";
 
 function App() {
   return (
-    <BrowserRouter basename="/Rating">
+    <BrowserRouter>
       <Suspense fallback={<div>Loading...</div>}>
         <ScrollToTop />
         <Routes>{RenderRoutes({})}</Routes>
