@@ -2,8 +2,10 @@ import { Col, Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 
 import "./index.scss";
+import { useTranslation } from "react-i18next";
 
 function Card2({ ItemData }) {
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const toRating = () => {
     navigate(`/rating/${id}`);
@@ -49,7 +51,10 @@ function Card2({ ItemData }) {
                 <i className="bi bi-star-fill"></i>
                 <i className="bi bi-star-fill"></i>
                 <i className="bi bi-star-fill"></i>
-                <span>{rating}分</span>
+                <span>
+                  {rating}
+                  {t("rating")}
+                </span>
               </div>
               <div className="ratings-item">
                 <i className="bi bi-chat-square-text c-primary"></i>
@@ -60,7 +65,7 @@ function Card2({ ItemData }) {
             </div>
 
             <Button variant="primary" size="sm" onClick={toRating}>
-              去评分
+              {t("toRating")}
             </Button>
           </div>
           <img src="/assets/images/line.jpg" alt="" className="line-img" />

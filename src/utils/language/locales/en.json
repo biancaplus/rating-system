@@ -1,0 +1,32 @@
+{
+  "navTitle": "Fair evaluation, common growth",
+  "homeBanner": {
+    "title": "Promote teaching and learning through evaluation",
+    "subtitle": "Each evaluation is a step towards educational progress",
+    "subtitle2": "Build an ecosystem of teaching feedback",
+    "subtitle3": "Enhance overall educational quality"
+  },
+  "changeLanguage": "切换语言",
+  "grid": "Grid",
+  "list": "List",
+  "sort": "Sort by",
+  "score": "Score",
+  "initials": "Initials",
+  "search": "Search",
+  "toRating": "To Rating",
+  "rating": " Rating",
+  "totalScore": "Full score：5 stars",
+  "ratingAndComment": "Rating and Comment",
+  "ratingNum": " user ratings",
+  "lightRating": "Light Rating",
+  "lightRatingPlaceholder": "Tap the star to rate",
+  "writeComment": "Write Comment",
+  "highestRating": "Highest Rating",
+  "lowestRating": "Lowest Rating",
+  "latestRating": "Latest Rating",
+  "submitted": "Submitted",
+  "thankYouFeedback": "Thank you for your feedback",
+  "commentPlaceholder": "Comment (optional)",
+  "cancel": "Cancel",
+  "send": "Send"
+}

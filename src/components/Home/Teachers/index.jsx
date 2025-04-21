@@ -4,8 +4,10 @@ import "./index.scss";
 import Card1 from "../../Card/Card-1";
 import Card2 from "../../Card/Card-2";
 import DynamicPagination from "@/components/DynamicPagination";
+import { useTranslation } from "react-i18next";
 
 function Teachers() {
+  const { t } = useTranslation();
   const [activeView, setActiveView] = useState("grid");
   const teacherList = [
     {
@@ -195,7 +197,7 @@ function Teachers() {
                 onClick={() => setActiveView("grid")}
               >
                 <i className="bi bi-grid-fill fs-5"></i>
-                <span>网格</span>
+                <span>{t("grid")}</span>
               </div>
               <div
                 className={`toolbar-btn ${
@@ -204,26 +206,26 @@ function Teachers() {
                 onClick={() => setActiveView("list")}
               >
                 <i className="bi bi-list fs-3"></i>
-                <span>列表</span>
+                <span>{t("list")}</span>
               </div>
             </div>
 
             <div className="condition-wrap">
               <div className="select-wrap">
-                <div className="text-nowrap">排序方式：</div>
+                <div className="text-nowrap">{t("sort")}：</div>
                 <Form.Select
                   aria-label="Default select example"
                   className="custom-form-select"
                 >
-                  <option value="1">评分</option>
-                  <option value="2">名称首字母</option>
+                  <option value="1">{t("score")}</option>
+                  <option value="2">{t("initials")}</option>
                 </Form.Select>
               </div>
               <div className="search-wrap">
                 <InputGroup className="custom-input-group">
                   <Form.Control
-                    placeholder="搜索"
-                    aria-label="搜索"
+                    placeholder={t("search")}
+                    aria-label={t("search")}
                     aria-describedby="search-btn"
                     className="custom-input"
                   />

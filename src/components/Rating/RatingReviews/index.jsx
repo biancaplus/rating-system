@@ -13,10 +13,12 @@ import Title from "@/components/Title";
 import StarRating from "@/utils/star/StarRating";
 import ReviewsItem from "@/components/ReviewsItem";
 import DynamicPagination from "@/components/DynamicPagination";
+import { useTranslation } from "react-i18next";
 
 import "./index.scss";
 
 export default function RatingReviews({ teacher }) {
+  const { t } = useTranslation();
   const [showToast, setShowToast] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [makeRating, setMakeRating] = useState(0);
@@ -57,12 +59,12 @@ export default function RatingReviews({ teacher }) {
       <section className="rating-reviews-section">
         <Container>
           <div className="rating-reviews-wrap">
-            <Title title="评分及评论" />
+            <Title title={t("ratingAndComment")} />
             <div className="rating-wrap">
               <div className="score-box">
                 <div className="total-score">
                   <div className="t-1">{rating}</div>
-                  <div className="t-2">满分5分</div>
+                  <div className="t-2">{t("totalScore")}</div>
                 </div>
                 <div className="star-info">
                   <div className="star-distribut">
@@ -87,11 +89,14 @@ export default function RatingReviews({ teacher }) {
                       );
                     })}
                   </div>
-                  <div className="star-num">{nums}个评分</div>
+                  <div className="star-num">
+                    {nums}
+                    {t("ratingNum")}
+                  </div>
                 </div>
               </div>
               <div className="to-score">
-                <div className="label">轻点评分：</div>
+                <div className="label">{t("lightRating")}：</div>
                 <div className="score">
                   <StarRating
                     score={makeRating}
@@ -106,16 +111,16 @@ export default function RatingReviews({ teacher }) {
               <div className="write-select-wrap">
                 <div className="write-box" onClick={handleShowModal}>
                   <i className="bi bi-pencil-square"></i>
-                  <div>撰写评论</div>
+                  <div>{t("writeComment")}</div>
                 </div>
                 <div className="select-box">
                   <Form.Select
                     aria-label="Default select example"
                     className="reviews-select"
                   >
-                    <option value="1">最高评价</option>
-                    <option value="2">最低评价</option>
-                    <option value="2">最新评价</option>
+                    <option value="1">{t("highestRating")}</option>
+                    <option value="2">{t("lowestRating")}</option>
+                    <option value="2">{t("latestRating")}</option>
                   </Form.Select>
                 </div>
               </div>
@@ -149,8 +154,8 @@ export default function RatingReviews({ teacher }) {
             <Toast.Body>
               <div className="toast-box">
                 <i className="bi bi-star-fill fs-1"></i>
-                <div style={{ fontSize: "1.2rem" }}>已提交</div>
-                <div>感谢你的反馈。</div>
+                <div style={{ fontSize: "1.2rem" }}>{t("submitted")}</div>
+                <div>{t("thankYouFeedback")}</div>
               </div>
             </Toast.Body>
           </Toast>
@@ -166,7 +171,7 @@ export default function RatingReviews({ teacher }) {
         >
           <Modal.Header>
             <div className="modal-header-wrap">
-              <Title title="撰写评论" />
+              <Title title={t("writeComment")} />
             </div>
           </Modal.Header>
           <Modal.Body>
@@ -176,13 +181,13 @@ export default function RatingReviews({ teacher }) {
                   score={makeRating}
                   onRate={(v) => setMakeRating(v)}
                 />
-                <div className="text">轻点星形来评分</div>
+                <div className="text">{t("lightRatingPlaceholder")}</div>
               </div>
               <div className="modal-comment">
                 <Form.Control
                   as="textarea"
                   rows={5}
-                  placeholder="评论（选填）"
+                  placeholder={t("commentPlaceholder")}
                   value={makeComment}
                   onChange={(e) => setMakeComment(e.target.value)}
                 />
@@ -191,10 +196,10 @@ export default function RatingReviews({ teacher }) {
           </Modal.Body>
           <Modal.Footer>
             <Button variant="secondary" onClick={handleCloseModal}>
-              取 消
+              {t("cancel")}
             </Button>
             <Button variant="primary" onClick={onRatingAndComment}>
-              发 送
+              {t("send")}
             </Button>
           </Modal.Footer>
         </Modal>

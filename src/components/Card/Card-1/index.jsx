@@ -4,8 +4,10 @@ import { useNavigate } from "react-router-dom";
 import "./index.scss";
 import StarRating from "@/utils/star/StarRating";
 import ReviewsItem from "@/components/ReviewsItem";
+import { useTranslation } from "react-i18next";
 
 function Card1({ ItemData }) {
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const toRating = () => {
     navigate(`/rating/${id}`);
@@ -58,7 +60,10 @@ function Card1({ ItemData }) {
                 <div className="star-rating-wrap">
                   <StarRating score={rating} readonly />
                 </div>
-                <span>{rating}分</span>
+                <span>
+                  {rating}
+                  {t("rating")}
+                </span>
               </div>
               <div className="nums">
                 <i className="bi bi-person-fill"></i>
@@ -87,7 +92,7 @@ function Card1({ ItemData }) {
                 className="btn-score"
                 onClick={toRating}
               >
-                去评分
+                {t("toRating")}
               </Button>
             </div>
           </div>

@@ -1,0 +1,32 @@
+{
+  "navTitle": "公正评价，共同成长",
+  "homeBanner": {
+    "title": "以评促教，教学相长",
+    "subtitle": "每一份评价都是教育进步的阶梯",
+    "subtitle2": "共建教学反馈生态",
+    "subtitle3": "提升整体教育质量"
+  },
+  "changeLanguage": "Change Language",
+  "grid": "网格",
+  "list": "列表",
+  "sort": "排序方式",
+  "score": "评分",
+  "initials": "名称首字母",
+  "search": "搜索",
+  "toRating": "去评分",
+  "rating": "分",
+  "totalScore": "满分5分",
+  "ratingAndComment": "评分及评论",
+  "ratingNum": "个评分",
+  "lightRating": "轻点评分",
+  "lightRatingPlaceholder": "轻点星形来评分",
+  "writeComment": "撰写评论",
+  "highestRating": "最高评分",
+  "lowestRating": "最低评分",
+  "latestRating": "最新评分",
+  "submitted": "已提交",
+  "thankYouFeedback": "感谢您的反馈",
+  "cancel": "取 消",
+  "send": "发 送",
+  "commentPlaceholder": "评论（选填）"
+}

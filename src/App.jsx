@@ -3,6 +3,7 @@ import { BrowserRouter, Routes } from "react-router-dom";
 import { RenderRoutes } from "./router/index.jsx";
 import ScrollToTop from "./utils/scroll/ScrollToTop.jsx";
 import BackToTop from "./utils/scroll/BackToTop.jsx";
+import "./utils/language/i18n";
 
 function App() {
   return (
