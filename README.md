@@ -1,12 +1,28 @@
-# React + Vite
+# <教师评分系统前台>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+> _一个基于 Vite + React 的展示教师评价的前端应用_
 
-Currently, two official plugins are available:
+## ✨ 核心特性
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- ⚡ **超快开发体验** - Vite 的即时服务器启动和热更新
+- 🧩 **React 18 特性** - 并发渲染、Suspense 支持
+- 📱 **完全响应式** - 适配移动端/平板/桌面设备
+- 🌐 **国际化** - 支持多语言（i18n）
+- 🧪 **功能** - 支持对教师进行打星评分以及评价
 
-## Expanding the ESLint configuration
+## 🚀 快速开始
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+npm run dev
+pnpm run dev
+
+### 前置要求
+
+- Node.js `>=18.0.0`
+
+### 安装依赖
+
+```bash
+npm install
+# 或
+pnpm install
+```

@@ -4,7 +4,7 @@ import { useState } from "react";
 import "./index.scss";
 
 function DynamicPagination({
-  totalPages = 20, // 总页数
+  totalPages = 10, // 总页数
   currentPage = 1, // 当前页（受控属性）
   maxVisiblePages = 5, // 最大可见页码数（奇数）
   onPageChange, // 页码变更回调函数

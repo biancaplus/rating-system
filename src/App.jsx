@@ -1,8 +1,8 @@
 import { Suspense } from "react";
 import { BrowserRouter, Routes } from "react-router-dom";
 import { RenderRoutes } from "./router/index.jsx";
-import ScrollToTop from "./utils/scroll/ScrollToTop.jsx";
-import BackToTop from "./utils/scroll/BackToTop.jsx";
+import ScrollToTop from "./components/Scroll/ScrollToTop.jsx";
+import BackToTop from "./components/Scroll/BackToTop.jsx";
 import "./utils/language/i18n";
 
 function App() {

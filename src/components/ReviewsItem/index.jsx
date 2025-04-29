@@ -12,7 +12,7 @@ export default function ReviewsItem({ Item }) {
             <i className="bi bi-star" key={i}></i>
           ))}
         </div>
-        <div className="review-date">{Item.date}</div>
+        <div className="review-date">{Item.date.slice(0, 10)}</div>
       </div>
       <div className="review-content">{Item.content}</div>
     </div>

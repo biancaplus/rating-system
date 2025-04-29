@@ -2,7 +2,7 @@ import { Col, Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 
 import "./index.scss";
-import StarRating from "@/utils/star/StarRating";
+import StarRating from "@/components/Star/StarRating";
 import ReviewsItem from "@/components/ReviewsItem";
 import { useTranslation } from "react-i18next";
 
@@ -18,11 +18,11 @@ function Card1({ ItemData }) {
     faculty,
     title,
     rating,
-    nums,
+    rating_count,
     courses,
     introduction,
-    reviewsNum,
-    reviews,
+    reviews_count,
+    recent_ratings,
   } = ItemData;
 
   return (
@@ -44,13 +44,15 @@ function Card1({ ItemData }) {
               <div className="other-wrap">
                 <div className="i-box">
                   <div className="value">
-                    {courses.map((item, index) => {
-                      return (
-                        <div className="item" key={index}>
-                          {item}
-                        </div>
-                      );
-                    })}
+                    {courses &&
+                      courses.length > 0 &&
+                      courses.map((item, index) => {
+                        return (
+                          <div className="item" key={index}>
+                            {item}
+                          </div>
+                        );
+                      })}
                   </div>
                 </div>
               </div>
@@ -65,16 +67,16 @@ function Card1({ ItemData }) {
                   {t("rating")}
                 </span>
               </div>
-              <div className="nums">
+              <div className="rating-count">
                 <i className="bi bi-person-fill"></i>
-                <span>{nums}</span>
+                <span>{rating_count}</span>
               </div>
             </div>
           </div>
           <div className="back">
             <div className="reviews-wrap">
               <div className="reviews-item-wrap">
-                {reviews.map((item, index) => {
+                {recent_ratings.map((item, index) => {
                   return <ReviewsItem Item={item} key={index} />;
                 })}
               </div>
@@ -82,9 +84,9 @@ function Card1({ ItemData }) {
             <div className="score-wrap">
               <div className="ratings">
                 <i className="bi bi-chat-square-text-fill"></i>
-                <span>{reviewsNum}</span>
+                <span>{reviews_count}</span>
                 <i className="bi bi-person-fill"></i>
-                <span>{nums}</span>
+                <span>{rating_count}</span>
               </div>
               <Button
                 variant="light"

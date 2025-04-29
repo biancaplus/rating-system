@@ -24,13 +24,15 @@ function Card3({ ItemData }) {
               <div className="i-box">
                 {/* <div className="label">主要课程：</div> */}
                 <div className="value">
-                  {courses.map((item, index) => {
-                    return (
-                      <div className="item" key={index}>
-                        {item}
-                      </div>
-                    );
-                  })}
+                  {courses &&
+                    courses.length > 0 &&
+                    courses.map((item, index) => {
+                      return (
+                        <div className="item" key={index}>
+                          {item}
+                        </div>
+                      );
+                    })}
                 </div>
               </div>
             </div>

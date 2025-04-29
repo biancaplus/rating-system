@@ -10,8 +10,17 @@ function Card2({ ItemData }) {
   const toRating = () => {
     navigate(`/rating/${id}`);
   };
-  const { id, name, faculty, title, rating, nums, courses, introduction } =
-    ItemData;
+  const {
+    id,
+    name,
+    faculty,
+    title,
+    rating,
+    rating_count,
+    courses,
+    reviews_count,
+    introduction,
+  } = ItemData;
   return (
     <Col className="col-12">
       <div className="card2-item-wrap">
@@ -32,13 +41,15 @@ function Card2({ ItemData }) {
               <div className="i-box">
                 {/* <div className="label">主要课程：</div> */}
                 <div className="value">
-                  {courses.map((item, index) => {
-                    return (
-                      <div className="item" key={index}>
-                        {item}
-                      </div>
-                    );
-                  })}
+                  {courses &&
+                    courses.length > 0 &&
+                    courses.map((item, index) => {
+                      return (
+                        <div className="item" key={index}>
+                          {item}
+                        </div>
+                      );
+                    })}
                 </div>
               </div>
             </div>
@@ -58,9 +69,9 @@ function Card2({ ItemData }) {
               </div>
               <div className="ratings-item">
                 <i className="bi bi-chat-square-text c-primary"></i>
-                <span>26</span>
+                <span>{reviews_count}</span>
                 <i className="bi bi-person  c-primary"></i>
-                <span>{nums}</span>
+                <span>{rating_count}</span>
               </div>
             </div>
 
