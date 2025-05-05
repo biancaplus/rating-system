@@ -15,6 +15,7 @@ import ReviewsItem from "@/components/ReviewsItem";
 import DynamicPagination from "@/components/DynamicPagination";
 import NoData from "@/components/NoData";
 import Loading from "../../Loading";
+import { SuccessToast, ErrorToast } from "@/components/Toast";
 import { useTranslation } from "react-i18next";
 import { getCommentList, addRating, getRatingDistribution } from "@/api/index";
 import { useScrollToElement } from "@/hooks/useScrollToElement";
@@ -221,39 +222,18 @@ export default function RatingReviews({ id }) {
           </div>
         </Container>
 
-        <ToastContainer className="p-3 custom-toast">
-          <Toast
-            onClose={() => setShowSuccessToast(false)}
-            show={showSuccessToast}
-            autohide
-            delay={1500}
-          >
-            <Toast.Body>
-              <div className="toast-box">
-                <i className="bi bi-star-fill fs-1"></i>
-                <div style={{ fontSize: "1.2rem" }}>{t("submitted")}</div>
-                <div>{t("thankYouFeedback")}</div>
-              </div>
-            </Toast.Body>
-          </Toast>
-        </ToastContainer>
-
-        <ToastContainer className="p-3 custom-toast" style={{ zIndex: 2000 }}>
-          <Toast
-            onClose={() => closeToast()}
-            show={showErrorToast}
-            autohide
-            delay={3000}
-          >
-            <Toast.Body>
-              <div className="toast-box">
-                <i className="bi bi-exclamation-triangle-fill fs-1"></i>
-                <div style={{ fontSize: "1.2rem" }}>{t("submittedError")}</div>
-                <div>{errorMessage}</div>
-              </div>
-            </Toast.Body>
-          </Toast>
-        </ToastContainer>
+        <SuccessToast
+          closeSuccessToast={() => setShowSuccessToast(false)}
+          showSuccessToast={showSuccessToast}
+          text1={t("submitted")}
+          text2={t("thankYouFeedback")}
+        />
+        <ErrorToast
+          closeErrorToast={() => closeToast()}
+          showErrorToast={showErrorToast}
+          text1={t("submittedError")}
+          text2={errorMessage}
+        />
 
         <Modal
           show={showModal}
