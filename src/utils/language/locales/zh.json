@@ -30,5 +30,6 @@
   "submittedError": "提交失败",
   "cancel": "取 消",
   "send": "发 送",
-  "commentPlaceholder": "评论（选填）"
+  "commentPlaceholder": "评论（选填）",
+  "noData": "暂无内容"
 }

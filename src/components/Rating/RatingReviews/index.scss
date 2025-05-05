@@ -12,6 +12,7 @@
     .rating-wrap {
       margin: 20px 0;
       color: #8c8c90;
+      position: relative;
 
       .score-box {
         display: flex;
@@ -58,14 +59,15 @@
           }
         }
       }
-      .to-score {
-        display: flex;
-        // justify-content: space-between;
-        align-items: center;
-      }
     }
 
     .reviews-wrap {
+      min-height: 300px;
+      position: relative;
+      .to-score {
+        display: flex;
+        align-items: center;
+      }
       .write-select-wrap {
         display: flex;
         align-items: center;
@@ -131,6 +133,7 @@
   }
 
   .modal-body-wrap {
+    position: relative;
     .modal-rating {
       text-align: center;
       margin-bottom: 1rem;

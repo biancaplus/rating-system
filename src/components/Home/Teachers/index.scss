@@ -91,6 +91,8 @@
     }
   }
   .tab-content {
+    min-height: 300px;
+    position: relative;
     .tab-pane {
       display: none;
       &.active {

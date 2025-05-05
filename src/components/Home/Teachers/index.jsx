@@ -4,6 +4,7 @@ import debounce from "lodash/debounce";
 import "./index.scss";
 import Card1 from "../../Card/Card-1";
 import Card2 from "../../Card/Card-2";
+import Loading from "../../Loading";
 import DynamicPagination from "@/components/DynamicPagination";
 import { useTranslation } from "react-i18next";
 import { getTeacherList } from "@/api/index.js";
@@ -191,6 +192,7 @@ function Teachers() {
   const teachersRef = useRef(null);
   const [sort, setSort] = useState(2);
   const [keywords, setKeywords] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   const sortChange = (value) => {
     setSort(value);
@@ -201,7 +203,7 @@ function Teachers() {
     setCurrentPage(1);
   };
 
-  // 防抖包装：延迟500ms执行
+  // 防抖：延迟500ms执行
   const debouncedSearch = useMemo(() => debounce(searchChange, 500), []);
 
   // 清除副作用：组件卸载时取消未完成的 debounce
@@ -213,11 +215,12 @@ function Teachers() {
 
   useEffect(() => {
     const getTeacher = async () => {
+      setIsLoading(true);
       const res = await getTeacherList(currentPage, pageSize, sort, keywords);
-      console.log(res);
       let list = res.data.list || [];
       setTeacherList(list);
       setTotalPages(res.data.totalPage);
+      setIsLoading(false);
     };
     getTeacher();
   }, [currentPage, sort, keywords]);
@@ -288,13 +291,6 @@ function Teachers() {
                     return <Card1 key={item.id} ItemData={item}></Card1>;
                   })}
                 </Row>
-                <DynamicPagination
-                  totalPages={totalPages}
-                  currentPage={currentPage}
-                  maxVisiblePages={3}
-                  showFirstLast={false}
-                  onPageChange={(page) => setCurrentPage(page)}
-                />
               </div>
             ) : (
               <div
@@ -305,16 +301,21 @@ function Teachers() {
                     return <Card2 key={item.id} ItemData={item}></Card2>;
                   })}
                 </Row>
-                <DynamicPagination
-                  totalPages={totalPages}
-                  currentPage={currentPage}
-                  maxVisiblePages={3}
-                  showFirstLast={false}
-                  onPageChange={(page) => setCurrentPage(page)}
-                />
               </div>
             )}
+
+            {isLoading && <Loading />}
           </div>
+          {teacherList.length > 0 && (
+            <DynamicPagination
+              totalPages={totalPages}
+              currentPage={currentPage}
+              maxVisiblePages={3}
+              showFirstLast={false}
+              onPageChange={(page) => setCurrentPage(page)}
+              isLoading={isLoading}
+            />
+          )}
         </Container>
       </section>
     </>

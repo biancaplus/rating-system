@@ -1,4 +1,5 @@
 import { Col, Button } from "react-bootstrap";
+import base64String from "../avatar.js";
 
 import "./index.scss";
 
@@ -8,7 +9,7 @@ function Card3({ ItemData }) {
     <Col className="col-12">
       <div className="card3-item-wrap">
         <div className="avatar-wrap">
-          <img src="/assets/images/avatar.png" alt="" className="" />
+          <img src={base64String} alt="" className="" />
         </div>
         <div className="info-score-wrap">
           <div className="info-wrap">

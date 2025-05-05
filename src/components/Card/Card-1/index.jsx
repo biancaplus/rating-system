@@ -4,7 +4,9 @@ import { useNavigate } from "react-router-dom";
 import "./index.scss";
 import StarRating from "@/components/Star/StarRating";
 import ReviewsItem from "@/components/ReviewsItem";
+import NoData from "@/components/NoData";
 import { useTranslation } from "react-i18next";
+import base64String from "../avatar.js";
 
 function Card1({ ItemData }) {
   const { t } = useTranslation();
@@ -31,7 +33,10 @@ function Card1({ ItemData }) {
         <div className="flipper">
           <div className="front">
             <div className="avatar-wrap">
-              <img src="/assets/images/avatar.png" alt="" className="" />
+              {/* <img src="/assets/images/avatar.png" alt="" className="" /> */}
+              {/* src={`data:image/png;base64,${base64String}`} */}
+
+              <img src={base64String} alt="" className="" />
             </div>
             <div className="info-wrap">
               <div className="faculty">{faculty}</div>
@@ -79,6 +84,9 @@ function Card1({ ItemData }) {
                 {recent_ratings.map((item, index) => {
                   return <ReviewsItem Item={item} key={index} />;
                 })}
+                {recent_ratings.length === 0 && (
+                  <NoData text={t("noData")} type="dark" />
+                )}
               </div>
             </div>
             <div className="score-wrap">

@@ -10,6 +10,7 @@ function DynamicPagination({
   onPageChange, // 页码变更回调函数
   showFirstLast = true, // 是否显示首页末页按钮
   showPrevNext = true, // 是否显示上一页下一页
+  isLoading = false, // 加载状态
 }) {
   const [activePage, setActivePage] = useState(currentPage);
 
@@ -35,12 +36,18 @@ function DynamicPagination({
     // 首页和省略号
     if (startPage > 1) {
       items.push(
-        <Pagination.Item key={1} onClick={() => handlePageChange(1)}>
+        <Pagination.Item
+          key={1}
+          onClick={() => handlePageChange(1)}
+          disabled={isLoading}
+        >
           1
         </Pagination.Item>
       );
       if (startPage > 2) {
-        items.push(<Pagination.Ellipsis key="start-ellipsis" />);
+        items.push(
+          <Pagination.Ellipsis key="start-ellipsis" disabled={isLoading} />
+        );
       }
     }
 
@@ -51,6 +58,7 @@ function DynamicPagination({
           key={i}
           active={i === activePage}
           onClick={() => handlePageChange(i)}
+          disabled={isLoading}
         >
           {i}
         </Pagination.Item>
@@ -60,12 +68,15 @@ function DynamicPagination({
     // 末页和省略号
     if (endPage < totalPages) {
       if (endPage < totalPages - 1) {
-        items.push(<Pagination.Ellipsis key="end-ellipsis" />);
+        items.push(
+          <Pagination.Ellipsis key="end-ellipsis" disabled={isLoading} />
+        );
       }
       items.push(
         <Pagination.Item
           key={totalPages}
           onClick={() => handlePageChange(totalPages)}
+          disabled={isLoading}
         >
           {totalPages}
         </Pagination.Item>
@@ -80,14 +91,14 @@ function DynamicPagination({
       {showFirstLast && (
         <Pagination.First
           onClick={() => handlePageChange(1)}
-          disabled={activePage === 1}
+          disabled={activePage === 1 || isLoading}
         />
       )}
 
       {showPrevNext && (
         <Pagination.Prev
           onClick={() => handlePageChange(activePage - 1)}
-          disabled={activePage === 1}
+          disabled={activePage === 1 || isLoading}
         />
       )}
 
@@ -96,14 +107,14 @@ function DynamicPagination({
       {showPrevNext && (
         <Pagination.Next
           onClick={() => handlePageChange(activePage + 1)}
-          disabled={activePage === totalPages}
+          disabled={activePage === totalPages || isLoading}
         />
       )}
 
       {showFirstLast && (
         <Pagination.Last
           onClick={() => handlePageChange(totalPages)}
-          disabled={activePage === totalPages}
+          disabled={activePage === totalPages || isLoading}
         />
       )}
     </Pagination>

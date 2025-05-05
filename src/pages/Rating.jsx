@@ -315,19 +315,22 @@ const Rating = () => {
   const { id } = useParams();
   // const teacher = teacherList.find((item) => item.id === parseInt(id));
   const [teacher, setTeacher] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     const getTeacher = async () => {
+      setIsLoading(true);
       const res = await getTeacherDetail(id);
       let obj = res.data;
       setTeacher(obj);
+      setIsLoading(false);
     };
     getTeacher();
   }, [id]);
   return (
     <>
       <Navigator />
-      {teacher && <RatingTeacher teacher={teacher} />}
+      {teacher && <RatingTeacher teacher={teacher} isLoading={isLoading} />}
       {teacher && <RatingReviews id={id} />}
     </>
   );

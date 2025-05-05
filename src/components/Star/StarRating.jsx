@@ -64,6 +64,7 @@ const StarRating = ({
   size = 24,
   onRate,
   readonly = false,
+  isLoading = false,
   justify = "center",
 }) => {
   const [hoverScore, setHoverScore] = useState(null);
@@ -81,7 +82,9 @@ const StarRating = ({
   };
 
   return (
-    <div style={{ display: "flex", justifyContent: justify }}>
+    <div
+      style={{ position: "relative", display: "flex", justifyContent: justify }}
+    >
       {[...Array(max)].map((_, i) => {
         const filled = Math.min(Math.max(displayScore - i, 0), 1);
         return (
@@ -96,6 +99,41 @@ const StarRating = ({
           />
         );
       })}
+
+      {isLoading && (
+        <div
+          style={{
+            position: "absolute",
+            inset: 0,
+            background: "rgba(255, 255, 255, 0.7)",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            zIndex: 10,
+          }}
+        >
+          <div
+            style={{
+              width: "24px",
+              height: "24px",
+              border: "4px solid #ccc",
+              borderTop: "4px solid #999",
+              borderRadius: "50%",
+              animation: "spin 0.8s linear infinite",
+            }}
+          />
+        </div>
+      )}
+
+      <style>
+        {`
+          @keyframes spin {
+            to {
+              transform: rotate(360deg);
+            }
+          }
+        `}
+      </style>
     </div>
   );
 };

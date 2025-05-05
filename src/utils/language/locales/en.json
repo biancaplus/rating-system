@@ -30,5 +30,6 @@
   "submittedError": "Submission failed",
   "commentPlaceholder": "Comment (optional)",
   "cancel": "Cancel",
-  "send": "Send"
+  "send": "Send",
+  "noData": "No Data"
 }

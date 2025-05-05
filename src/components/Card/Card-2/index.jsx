@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 import "./index.scss";
 import { useTranslation } from "react-i18next";
+import base64String from "../avatar.js";
 
 function Card2({ ItemData }) {
   const { t } = useTranslation();
@@ -25,7 +26,7 @@ function Card2({ ItemData }) {
     <Col className="col-12">
       <div className="card2-item-wrap">
         <div className="avatar-wrap">
-          <img src="/assets/images/avatar.png" alt="" className="" />
+          <img src={base64String} alt="" className="" />
         </div>
         <div className="info-score-wrap">
           <div className="info-wrap">
