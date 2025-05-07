@@ -90,9 +90,16 @@ body {
     margin: auto 0;
   }
   .custom-icon {
-    margin: auto 0;
-    margin-left: 0.5em;
+    margin: auto 0.5em;
     cursor: pointer;
+    width: 20px;
+    height: 20px;
+  }
+  .custom-nav-dropdown {
+    line-height: 2;
+    .dropdown-menu {
+      min-width: inherit;
+    }
   }
 }
 .home-banner {
@@ -100,6 +107,38 @@ body {
 }
 .rating-teacther-section {
   padding-top: 130px;
+}
+.custom-modal {
+  .modal-header-wrap {
+    .custom-title {
+      font-size: 1.3rem;
+    }
+  }
+
+  .modal-body-wrap {
+    position: relative;
+
+    .text {
+      color: #86868c;
+      font-size: 0.85rem;
+    }
+    .click-text {
+      cursor: pointer;
+      &:hover {
+        color: #5a53ef;
+      }
+    }
+  }
+}
+
+.custom-collapsed-icon {
+  text-align: center;
+  margin: 16px 10px;
+  color: #5d55fa;
+  cursor: pointer;
+  &:hover {
+    transform: scale(1.2);
+  }
 }
 
 /* xxl */

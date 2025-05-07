@@ -3,6 +3,7 @@ import react from "@vitejs/plugin-react";
 import svgr from "vite-plugin-svgr";
 import path from "path";
 import { fileURLToPath } from "url";
+import vitePluginImp from "vite-plugin-imp";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -12,6 +13,14 @@ export default defineConfig({
     react(),
     svgr({
       exportAsDefault: false,
+    }),
+    vitePluginImp({
+      libList: [
+        {
+          libName: "antd",
+          style: (name) => `antd/es/${name}/style/css`, // 按需加载CSS
+        },
+      ],
     }),
   ],
   resolve: {

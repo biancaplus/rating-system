@@ -1,30 +1,22 @@
-import {
-  Form,
-  Container,
-  ProgressBar,
-  Toast,
-  ToastContainer,
-  Modal,
-  Button,
-} from "react-bootstrap";
+import { Form, Container, ProgressBar, Modal, Button } from "react-bootstrap";
 import { useState, useEffect, useCallback, useRef } from "react";
-
 import Title from "@/components/Title";
 import StarRating from "@/components/Star/StarRating";
 import ReviewsItem from "@/components/ReviewsItem";
 import DynamicPagination from "@/components/DynamicPagination";
 import NoData from "@/components/NoData";
 import Loading from "../../Loading";
-import { SuccessToast, ErrorToast } from "@/components/Toast";
+import { useToast } from "@/context/ToastContext";
 import { useTranslation } from "react-i18next";
 import { getCommentList, addRating, getRatingDistribution } from "@/api/index";
 import { useScrollToElement } from "@/hooks/useScrollToElement";
 import "./index.scss";
+import { useSelector } from "react-redux";
 
 export default function RatingReviews({ id }) {
   const { t } = useTranslation();
-  const [showSuccessToast, setShowSuccessToast] = useState(false);
-  const [showErrorToast, setShowErrorToast] = useState(false);
+  const isLog = useSelector((state) => state.user.isLog);
+  const { showToast } = useToast();
   const [showModal, setShowModal] = useState(false);
   const [makeRating, setMakeRating] = useState(0);
   const [makeComment, setMakeComment] = useState("");
@@ -39,7 +31,6 @@ export default function RatingReviews({ id }) {
   const [isLoading1, setIsLoading1] = useState(false);
   const [isLoading2, setIsLoading2] = useState(false);
   const [isLoading3, setIsLoading3] = useState(false);
-  const [errorMessage, setErrorMessage] = useState("");
   const reviewsRef = useRef(null);
 
   const onRating = async (isComment = false, rating = makeRating) => {
@@ -58,15 +49,13 @@ export default function RatingReviews({ id }) {
             setShowModal(false);
             getReviews();
           }
-          setShowSuccessToast(true);
+          showToast("success", t("submitted"), t("thankYouFeedback"));
         } else {
-          setErrorMessage(res.message);
-          setShowErrorToast(true);
+          showToast("error", t("submittedError"), res.message);
         }
       })
       .catch((err) => {
-        setErrorMessage(err.message);
-        setShowErrorToast(true);
+        showToast("error", err);
       })
       .finally(() => {
         setIsLoading3(false);
@@ -88,10 +77,6 @@ export default function RatingReviews({ id }) {
     setMakeRating(0);
     setMakeComment("");
     setShowModal(true);
-  };
-  const closeToast = () => {
-    setShowErrorToast(false);
-    setErrorMessage("");
   };
 
   const getDistribution = useCallback(async () => {
@@ -168,23 +153,31 @@ export default function RatingReviews({ id }) {
               {isLoading1 && <Loading />}
             </div>
             <div className="reviews-wrap" ref={reviewsRef}>
-              <div className="to-score">
-                <div className="label">{t("lightRating")}：</div>
-                <div className="score">
-                  <StarRating
-                    score={makeRating}
-                    onRate={(v) => {
-                      onMakeRating(v);
-                    }}
-                    isLoading={isLoading3}
-                  />
+              {isLog ? (
+                <div className="to-score">
+                  <div className="label">{t("lightRating")}：</div>
+                  <div className="score">
+                    <StarRating
+                      score={makeRating}
+                      onRate={(v) => {
+                        onMakeRating(v);
+                      }}
+                      isLoading={isLoading3}
+                    />
+                  </div>
                 </div>
-              </div>
+              ) : (
+                <div></div>
+              )}
               <div className="write-select-wrap">
-                <div className="write-box" onClick={handleShowModal}>
-                  <i className="bi bi-pencil-square"></i>
-                  <div>{t("writeComment")}</div>
-                </div>
+                {isLog ? (
+                  <div className="write-box" onClick={handleShowModal}>
+                    <i className="bi bi-pencil-square"></i>
+                    <div>{t("writeComment")}</div>
+                  </div>
+                ) : (
+                  <div></div>
+                )}
                 <div className="select-box">
                   <Form.Select
                     aria-label="Default select example"
@@ -221,19 +214,6 @@ export default function RatingReviews({ id }) {
             </div>
           </div>
         </Container>
-
-        <SuccessToast
-          closeSuccessToast={() => setShowSuccessToast(false)}
-          showSuccessToast={showSuccessToast}
-          text1={t("submitted")}
-          text2={t("thankYouFeedback")}
-        />
-        <ErrorToast
-          closeErrorToast={() => closeToast()}
-          showErrorToast={showErrorToast}
-          text1={t("submittedError")}
-          text2={errorMessage}
-        />
 
         <Modal
           show={showModal}

@@ -25,6 +25,7 @@ function Card1({ ItemData }) {
     introduction,
     reviews_count,
     recent_ratings,
+    avatar,
   } = ItemData;
 
   return (
@@ -36,7 +37,7 @@ function Card1({ ItemData }) {
               {/* <img src="/assets/images/avatar.png" alt="" className="" /> */}
               {/* src={`data:image/png;base64,${base64String}`} */}
 
-              <img src={base64String} alt="" className="" />
+              <img src={avatar ? avatar : base64String} alt="" className="" />
             </div>
             <div className="info-wrap">
               <div className="faculty">{faculty}</div>

@@ -1,5 +1,9 @@
 import axios from "axios";
 import qs from "qs";
+import dataInit from "@/config";
+import store from "@/store";
+import { clearUser } from "@/store/userSlice";
+import { toast } from "react-toastify";
 
 // 创建 axios 实例
 const service = axios.create({
@@ -11,16 +15,16 @@ const service = axios.create({
 service.interceptors.request.use(
   (config) => {
     // 统一添加 token
-    const token = localStorage.getItem("token");
+    const token = localStorage.getItem(dataInit.cookieID);
     if (token) {
-      config.headers.Authorization = `Bearer ${token}`;
+      config.headers.Authorization = `${token}`;
     }
 
-    if (
-      config.headers["Content-Type"] === "application/x-www-form-urlencoded"
-    ) {
+    if (config.method === "post") {
+      config.headers["Content-Type"] = "application/x-www-form-urlencoded";
       config.data = qs.stringify(config.data);
     }
+
     return config;
   },
   (error) => {
@@ -36,10 +40,11 @@ service.interceptors.response.use(
   },
   (error) => {
     if (error.response) {
-      console.error("响应错误", error.response);
       if (error.response.status === 401) {
-        // 跳转登录页
-        console.warn("未授权，请重新登录");
+        console.error(error.message);
+        toast.error("登录已过期，请重新登录");
+        localStorage.removeItem(dataInit.cookieID);
+        store.dispatch(clearUser());
       }
     } else if (error.request) {
       console.error("请求无响应", error.request);

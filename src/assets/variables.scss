@@ -1,4 +1,6 @@
+/* ----------------------- bootstrap css ----------------------- */
 //Color
+$purple-50: #e0e1fe;
 $purple-100: #c4c6ff;
 $purple-200: #a2a5fc;
 $purple-300: #8888fc;
@@ -108,5 +110,38 @@ $font-sizes: (
   }
   .modal-footer {
     border-top: none;
+    padding: 10px 20px;
   }
+}
+
+/* ----------------------- ant css ----------------------- */
+.ant-table-cell {
+  padding: 10px !important;
+}
+.ant-table-pagination {
+  margin: 10px 0 !important;
+}
+.ant-menu-inline-collapsed {
+  width: 60px;
+}
+.ant-btn-color-primary.ant-btn-variant-text,
+.ant-menu-item-selected {
+  color: $purple !important;
+}
+.ant-btn-color-primary.ant-btn-variant-text:hover,
+.ant-menu-item-selected {
+  background-color: $purple-50 !important;
+}
+.ant-btn-color-default.ant-btn-variant-outlined:hover {
+  border-color: $purple !important;
+  color: $purple !important;
+}
+.ant-btn-color-primary.ant-btn-variant-solid {
+  background: $purple !important;
+  &:hover {
+    background: $purple-300 !important;
+  }
+}
+.ant-pagination-item-active {
+  border-color: $purple !important;
 }

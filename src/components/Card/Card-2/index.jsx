@@ -21,12 +21,13 @@ function Card2({ ItemData }) {
     courses,
     reviews_count,
     introduction,
+    avatar,
   } = ItemData;
   return (
     <Col className="col-12">
       <div className="card2-item-wrap">
         <div className="avatar-wrap">
-          <img src={base64String} alt="" className="" />
+          <img src={avatar ? avatar : base64String} alt="avatar" className="" />
         </div>
         <div className="info-score-wrap">
           <div className="info-wrap">

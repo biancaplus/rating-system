@@ -4,12 +4,12 @@ import base64String from "../avatar.js";
 import "./index.scss";
 
 function Card3({ ItemData }) {
-  const { name, faculty, title, courses, introduction } = ItemData;
+  const { name, faculty, title, courses, introduction, avatar } = ItemData;
   return (
     <Col className="col-12">
       <div className="card3-item-wrap">
         <div className="avatar-wrap">
-          <img src={base64String} alt="" className="" />
+          <img src={avatar ? avatar : base64String} alt="avatar" className="" />
         </div>
         <div className="info-score-wrap">
           <div className="info-wrap">
