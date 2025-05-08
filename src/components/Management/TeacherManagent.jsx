@@ -323,7 +323,7 @@ export default function TeacherManagent() {
         console.log("res", res);
         let list = (res && res.data.list) || [];
         list.forEach((item) => {
-          item.courses = item.courses.join("，");
+          item.courses = item.courses.join(",");
         });
         setTableData(list);
         setTotalItems(res.data.totalPage * pageSize);
